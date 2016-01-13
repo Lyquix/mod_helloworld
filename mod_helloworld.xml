@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="3.1.0" client="site" method="upgrade">
-	<name>Hello, World!</name>
-	<author>John Doe</author>
+	<name>Hello World!</name>
+	<author>Lyquix</author>
 	<version>1.0.0</version>
-	<description>A simple Hello, World! module.</description>
+	<description>A simple Hello World! module</description>
 	<files>
 		<filename>mod_helloworld.xml</filename>
 		<filename module="mod_helloworld">mod_helloworld.php</filename>
@@ -16,7 +16,17 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field name="lang" type="sql" default="1" label="Select a language" query="SELECT id AS value, lang FROM #__helloworld" />
+				<field name="lang" type="sql" default="1" label="Select language" description="" query="SELECT id AS value, lang FROM #__helloworld" />
+				<field name="color" type="radio" default="" label="Select color" description="Select the text color for the output" class="btn-group group-fcinfo">
+					<option value="">Default</option>
+					<option value="red">Red</option>
+					<option value="green">Green</option>
+					<option value="blue">Blue</option>
+				</field>
+				<field name="underline" type="radio" default="1" label="Underline" description="Select whether text should be bold" class="btn-group btn-group-yesno">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
 			</fieldset>
 			<fieldset name="advanced">
 				<field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
@@ -26,9 +36,7 @@
 					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
 				</field>
 				<field name="cache_time" type="text" default="900" label="COM_MODULES_FIELD_CACHE_TIME_LABEL" description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
-				<field name="cachemode" type="hidden" default="static">
-					<option value="static"></option>
-				</field>
+				<field name="cachemode" type="hidden" default="static" value="static" />
 			</fieldset>
 		</fields>
 	</config>
